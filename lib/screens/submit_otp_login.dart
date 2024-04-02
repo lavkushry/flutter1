@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:realroadie1/screens/ProfilePage.dart';
 import 'package:realroadie1/services/api-services.dart';
 
 import '../main.dart';
@@ -35,11 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   SizedBox(width:0,height: 70,),
                   Text('Verification Code',
-                    style:GoogleFonts.poppins(
-                        color:Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600
-                    ),
+                    style:Theme.of(context).textTheme.subtitle1
                   ),
                   SizedBox(width:0,height: 25,),
                   RichText(text: TextSpan(
@@ -103,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     onPressed: () async {
                       await dioClient.getOtp(email:widget.email ,otp: otpTextFieldController.text);
-
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfilePage()));
                     },
                     child: Text('Log in',
                       style: GoogleFonts.poppins(

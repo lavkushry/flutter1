@@ -42,8 +42,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
         centerTitle: true,
         title: Text(
           'Profile',
-          style: GoogleFonts.poppins(
-              color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
+          style: Theme.of(context).textTheme.headline6,
         ),
         actions: [
           IconButton(
@@ -70,34 +69,20 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                     Column(
                       children: [
                         Text('10',
-                          style: GoogleFonts.poppins(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+                          style: Theme.of(context).textTheme.headline6
                         ),
                         Text('Rides',
-                          style: GoogleFonts.poppins(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
+                          style: Theme.of(context).textTheme.subtitle1
                         ),
                       ],
                     ),
                     Column(
                       children: [
                         Text('10k',
-                          style: GoogleFonts.poppins(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+                          style: Theme.of(context).textTheme.headline6
                         ),
                         Text('Distances(km)',
-                          style: GoogleFonts.poppins(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
+                          style: Theme.of(context).textTheme.subtitle1
                         ),
                       ],
                     ),
@@ -110,17 +95,10 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                     Column(
                       children: [
                         Text('Aaradhya',
-                          style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+                          style: Theme.of(context).textTheme.headline6,
                         ),
                         Text('Aaradhya',
-                          style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            color: Colors.white60,
-                          ),
+                          style: Theme.of(context).textTheme.subtitle1,
                         ),
                       ],
                     ),
@@ -141,13 +119,9 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
-                        child: const Text(
+                        child: Text(
                           'Become a Member',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: Theme.of(context).textTheme.headline6
                         ),
                       ),
                     ],
@@ -158,11 +132,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                   child: Column(
                     children: [
                       Text("My Bikes",
-                        style: GoogleFonts.poppins(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight:FontWeight.bold)
                       ),
                     ],
                   ),

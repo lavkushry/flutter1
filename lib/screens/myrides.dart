@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
-class myrides extends StatefulWidget {
-  const myrides({super.key});
+class MyRides extends StatefulWidget {
+  const MyRides({Key? key}) : super(key: key);
+
   @override
-  State<StatefulWidget> createState() {
-    throw UnimplementedError();
-  }
+  _MyRidesState createState() => _MyRidesState();
+}
+
+class _MyRidesState extends State<MyRides> {
+  var arrNames = ["Lavkush", 'arun', 'Ajay', 'Vikash'];
 
   @override
   Widget build(BuildContext context) {
@@ -15,21 +18,33 @@ class myrides extends StatefulWidget {
           icon: Icon(Icons.arrow_back, color: Colors.black,),
           onPressed: () {  },
         ),
+
         title: Text("My Rides"),
         centerTitle: true,
       ),
-      body:Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            ListView.builder(
-              itemBuilder: ,
-              itemCount: 8,)
-          ],
-        ),
 
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView.builder(
+          scrollDirection: Axis.vertical,
+          itemBuilder: (context, index) {
+            return Row(
+              children: [
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.white,
+                )
+              ],
+            );
+          },
+          itemCount: arrNames.length,
+
+          // separatorBuilder: (context, index) {
+          //   return Divider(height: 10,);
+          // },
+        ),
       ),
     );
   }
-
 }

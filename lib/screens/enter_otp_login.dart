@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'ProfilePage.dart';
+
 
 
 class OtpLogin extends StatelessWidget {
@@ -64,30 +66,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   SizedBox(width:0,height: 70,),
                   Text('Verification Code',
-                    style:GoogleFonts.poppins(
-                        color:Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600
-                    ),
+                    style: Theme.of(context).textTheme.headline6
                   ),
                   SizedBox(width:0,height: 25,),
                   RichText(text: TextSpan(
                     children: [
                       TextSpan(
                         text: "Code verification sent to",
-                        style: GoogleFonts.poppins(
-                            color:Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500
-                        ),
+                        style: Theme.of(context).textTheme.subtitle1
                       ),
                       TextSpan(
                         text: "+919122036484",
-                        style: GoogleFonts.poppins(
-                            color:Colors.yellowAccent,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500
-                        ),
+                        style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Colors.yellow)
                       ),
                     ],
                   ),
@@ -95,11 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(width:10,height: 10,),
                   Text('Input fields with this (*) symbol are \n marked as Mandatory',
                     textAlign: TextAlign.center,
-                    style:GoogleFonts.poppins(
-                        color:Colors.white60,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400
-                    ),
+                    style:Theme.of(context).textTheme.subtitle2
                   ),
                   SizedBox(width:10,height: 10,),
                   TextFormField(
@@ -108,10 +94,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       labelText: 'Enter OTP*',
                       hintText: 'Enter OTP',
                       border: OutlineInputBorder(),
-                      hintStyle: TextStyle(fontSize: 15.0, color: Colors.white),
+                      hintStyle: Theme.of(context).textTheme.subtitle1
                     ),
-                    style: TextStyle(color: Colors.white),
-
+                    style:Theme.of(context).textTheme.subtitle2,
                     keyboardType: TextInputType.phone,
 
                   ),
@@ -126,37 +111,25 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
 
                     onPressed: () async {
-                      // String email = emailController.text;
+                      String email = emailController.text;
                       await sendEmail(emailController.text).then((value) { print('$value');});
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfilePage()));
+
                     },
 
-
-
-
                     child: Text('GET OTP',
-                      style: GoogleFonts.poppins(
-                        color:Colors.black,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),),
+                      style: Theme.of(context).textTheme.subtitle1
+                    ),
                   ),
                   RichText(text: TextSpan(
                     children: [
                       TextSpan(
                         text: "Didn't receive the verification OTP?",
-                        style: GoogleFonts.poppins(
-                            color:Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500
-                        ),
+                        style: Theme.of(context).textTheme.caption,
                       ),
                       TextSpan(
                         text: " Resend again",
-                        style: GoogleFonts.poppins(
-                            color:Colors.yellowAccent,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500
-                        ),
+                        style: Theme.of(context).textTheme.caption!.copyWith(color: Colors.yellow),
                       ),
                     ],
                   ),

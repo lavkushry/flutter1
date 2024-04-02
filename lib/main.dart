@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:realroadie1/screens/multi_model_page.dart';
-import 'package:realroadie1/screens/reverpodtest.dart';
+import 'package:realroadie1/screens/config.dart';
+import 'package:realroadie1/screens/enter_otp_login.dart';
+import 'package:realroadie1/screens/submit_otp_login.dart';
 import 'package:realroadie1/services/api-services.dart';
 
 void main() {
@@ -16,12 +16,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Real Rodies Login Screen',
       theme: ThemeData(
+        primaryColor: Colors.yellow,
+        textTheme:textTheme,
+        primaryTextTheme:textTheme ,
+        primarySwatch:Colors.cyan,
         scaffoldBackgroundColor: Colors.black,
         useMaterial3: true,
       ),
-      home: const MMpage(),
+      home: const MyHomePage(),
     );
   }
 }
@@ -49,28 +52,16 @@ class MyHomePageState extends State<MyHomePage> {
             children: [
               SizedBox(width:0,height: 70,),
               Text('Get Started',
-                style:GoogleFonts.poppins(
-                    color:Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600
-                ),
+                style:Theme.of(context).textTheme.headline5
               ),
               SizedBox(width:0,height: 25,),
               Text('What\'s Your Phone Number?',
-              style: GoogleFonts.poppins(
-                  color:Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500
-              ),
+                style: Theme.of(context).textTheme.headline6,
               ),
               SizedBox(width:10,height: 10,),
               Text('Input fields with this (*) symbol are \n marked as Mandatory',
                   textAlign: TextAlign.center,
-                  style:GoogleFonts.poppins(
-                    color:Colors.white60,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400
-                ),
+                  style:Theme.of(context).textTheme.caption
               ),
               SizedBox(width:10,height: 10,),
               TextFormField(
@@ -81,13 +72,9 @@ class MyHomePageState extends State<MyHomePage> {
                     border: OutlineInputBorder(),
 
                   hintStyle: TextStyle(fontSize: 15.0, color: Colors.white60),
-                    labelStyle: GoogleFonts.poppins(
-                      color:Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400),
+                    labelStyle: Theme.of(context).textTheme.subtitle1
                     ),
-                    style: TextStyle(color: Colors.white),
-
+                    style:Theme.of(context).textTheme.headline6,
                     keyboardType: TextInputType.phone,
 
               ),
@@ -103,14 +90,11 @@ class MyHomePageState extends State<MyHomePage> {
 
                   onPressed: () async {
                     // await dio.sendEmail(emailController.text);
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => RiverpodHome()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => OtpLogin()));
                   },
                   child: Text('GET OTP',
-                  style: GoogleFonts.poppins(
-                      color:Colors.black,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                  ),),
+                  style: Theme.of(context).textTheme.subtitle1
+                  ),
               )
             ],
           ),
